@@ -43,7 +43,7 @@ How to create your own project using this example:
   $ sed -i -e 's/out_of_tree/myproject/g' $(find . -type f)
 
 * Rename all the files accordingly using e.g. zmv
-  $ zmv -v '*/*' '$f/s/out_of_tree/myproject/g'
+  $ zmv -v '*/*' '$f:s/out_of_tree/myproject/g'
 
 
 Howto add your own blocks:
