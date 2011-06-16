@@ -1,0 +1,12 @@
+prefix=@CMAKE_INSTALL_PREFIX@
+exec_prefix=${prefix}
+libdir=${prefix}/lib@LIB_POSTFIX@
+includedir=${prefix}/include/out_of_tree
+
+Name: gnuradio-out_of_tree
+Description: GNU Radio blocks for the spectral estimation toolbox
+Requires: gnuradio-core
+Version: @LIBVER@
+Libs: -L${libdir} -lgnuradio-out_of_tree
+Libs.private: -llapack -lblas
+Cflags: -I${includedir}
