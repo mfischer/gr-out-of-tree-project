@@ -83,10 +83,11 @@ TARGET_LINK_LIBRARIES(test_runner
 # Install the stuff
 ###############################################################################
 
-IF(UNIX AND ("${CMAKE_SIZEOF_VOID_P}" EQUAL "8"))
-	LIST(APPEND BOOST_LIBRARYDIR "/usr/lib64") #fedora 64-bit fix
-	SET(LIB_POSTFIX 64)
-ENDIF(UNIX AND ("${CMAKE_SIZEOF_VOID_P}" EQUAL "8"))
+IF(UNIX AND ("${CMAKE_SIZEOF_VOID_P}" EQUAL "8") AND (EXISTS "${CMAKE_INSTALL_PREFIX}/lib64"))
+                        LIST(APPEND BOOST_LIBRARYDIR "/usr/lib64") #fedora 64-bit fix
+                        SET(LIB_POSTFIX 64)
+ENDIF(UNIX AND ("${CMAKE_SIZEOF_VOID_P}" EQUAL "8") AND (EXISTS "${CMAKE_INSTALL_PREFIX}/lib64"))
+
 
 INSTALL(TARGETS gnuradio-out_of_tree gnuradio-out_of_tree-static
 	LIBRARY DESTINATION ${CMAKE_INSTALL_PREFIX}/lib${LIB_POSTFIX}
