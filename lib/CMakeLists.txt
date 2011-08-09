@@ -84,8 +84,8 @@ TARGET_LINK_LIBRARIES(test_runner
 ###############################################################################
 
 IF(UNIX AND ("${CMAKE_SIZEOF_VOID_P}" EQUAL "8") AND (EXISTS "${CMAKE_INSTALL_PREFIX}/lib64"))
-                        LIST(APPEND BOOST_LIBRARYDIR "/usr/lib64") #fedora 64-bit fix
-                        SET(LIB_POSTFIX 64)
+	LIST(APPEND BOOST_LIBRARYDIR "/usr/lib64") #fedora 64-bit fix
+	SET(LIB_POSTFIX 64)
 ENDIF(UNIX AND ("${CMAKE_SIZEOF_VOID_P}" EQUAL "8") AND (EXISTS "${CMAKE_INSTALL_PREFIX}/lib64"))
 
 
